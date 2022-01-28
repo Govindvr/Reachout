@@ -29,11 +29,13 @@
                     {{ form.project.label() }}
                     {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
                 </form>
-            </div>      
-            <div class="col-12">
-                {{form.submit(class="btn btn-block btn-lg btn-primary")}}
-
-            </div>     
+            </div>    
+            <br>  
+               
         </div>
+        <div class="col-12 d-flex justify-content-center"">
+            {{form.submit(class="btn btn-block btn-lg btn-primary")}}
+
+        </div> 
     </div>
 {% endblock %}
