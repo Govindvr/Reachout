@@ -1,13 +1,15 @@
 {% extends "index.html" %}
 
 {% block body %}
-<div class="container">
-    <h1>Login</h1>
-    <form method="POST" class="form-login">
-        {{ form.username.label() }}
-        {{ form.username(class = "form-control", placeholder = "User Name") }}
-        {{ form.password.label() }}
-        {{ form.password(class = "form-control", placeholder = "Password") }}
-    </form>
-</div>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" class="form-register" >
+            {{ form.username.label() }}
+            {{ form.username(class = "form-control", placeholder = "User Name") }}
+            {{ form.password.label() }}
+            {{ form.password(class = "form-control", placeholder = "Password") }}
+            <br>
+            {{ form.submit(class = "btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
 {% endblock %}
