@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container">
         <div class="row border border-white p-3 mb-2 bg-light text-dark">
-            <div class="col">
+            <div class="col ">
                 <h1 class="text-center">Register</h1>
                 <form method="POST" class="form-register" >
                     {{ form.username.label() }}
@@ -13,6 +13,19 @@
                     {{ form.password.label() }}
                     {{ form.password(class = "form-control", placeholder = "Password") }}
                     {{ form.phone.label() }}
+                    {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
+                </form>
+            </div>
+            <div class="col ">
+                <h1 class="text-center">Register</h1>
+                <form method="POST" class="form-register" >
+                    {{ form.name.label() }}
+                    {{ form.name(class = "form-control", placeholder = "User Name") }}
+                    {{ form.Class.label() }}
+                    {{ form.Class(class = "form-control", placeholder = "Email") }}
+                    {{ form.field.label() }}
+                    {{ form.field(class = "form-control", placeholder = "Password") }}
+                    {{ form.project.label() }}
                     {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
                 </form>
             </div>

@@ -1,5 +1,3 @@
-from dataclasses import field
-from unicodedata import name
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 
