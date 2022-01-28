@@ -1,14 +1,20 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
-from app.forms import RegisterForm
+from app.forms import RegisterForm, LoginForm
+from app import db
 
 @app.route('/')
 def home():
     return render_template("index.html")
 
-@app.route('/login')
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
-    form = RegisterForm()
+    form = LoginForm()
+    if request.method == 'POST':
+        user = form.username.data
+        psswd = form.password.data
+        print(user)
+        print(psswd)
     return render_template("login.html", form=form)
 
 @app.route('/register')
