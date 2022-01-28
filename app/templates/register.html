@@ -3,8 +3,9 @@
 {% block body %}
     <div class="container">
         <div class="row border border-white p-3 mb-2 bg-light text-dark">
+            <h1 class="text-center">Register</h1>
+
             <div class="col ">
-                <h1 class="text-center">Register</h1>
                 <form method="POST" class="form-register" >
                     {{ form.username.label() }}
                     {{ form.username(class = "form-control", placeholder = "User Name") }}
@@ -16,19 +17,23 @@
                     {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
                 </form>
             </div>
-            <div class="col ">
-                <h1 class="text-center">Register</h1>
+
+            <div class="col "> 
                 <form method="POST" class="form-register" >
                     {{ form.name.label() }}
                     {{ form.name(class = "form-control", placeholder = "User Name") }}
-                    {{ form.Class.label() }}
-                    {{ form.Class(class = "form-control", placeholder = "Email") }}
+                    {{ form.education.label() }}
+                    {{ form.education(class = "form-control", placeholder = "Email") }}
                     {{ form.field.label() }}
                     {{ form.field(class = "form-control", placeholder = "Password") }}
                     {{ form.project.label() }}
                     {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
                 </form>
-            </div>
+            </div>      
+            <div class="col-12">
+                {{form.submit(class="btn btn-block btn-lg btn-primary")}}
+
+            </div>     
         </div>
     </div>
 {% endblock %}
