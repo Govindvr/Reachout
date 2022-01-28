@@ -13,3 +13,8 @@ class RegisterForm(FlaskForm):
     project = StringField(label = "Projects/Work")
 
     submit = SubmitField(label="Submit")
+
+class LoginForm(FlaskForm):
+    username = StringField(label="Username")
+    password = PasswordField(label="Password")
+    submit = SubmitField(label="Submit")
