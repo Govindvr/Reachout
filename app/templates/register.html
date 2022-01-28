@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST" class="form-register" >
+            {{ form.username.label() }}
+            {{ form.username(class = "form-control", placeholder = "User Name") }}
+            {{ form.email.label() }}
+            {{ form.email(class = "form-control", placeholder = "Email") }}
+            {{ form.password.label() }}
+            {{ form.password(class = "form-control", placeholder = "Password") }}
+        </form>
+    </div>
+{% endblock %}
