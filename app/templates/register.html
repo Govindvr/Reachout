@@ -2,14 +2,20 @@
 
 {% block body %}
     <div class="container">
-        <h1>Register</h1>
-        <form method="POST" class="form-register" >
-            {{ form.username.label() }}
-            {{ form.username(class = "form-control", placeholder = "User Name") }}
-            {{ form.email.label() }}
-            {{ form.email(class = "form-control", placeholder = "Email") }}
-            {{ form.password.label() }}
-            {{ form.password(class = "form-control", placeholder = "Password") }}
-        </form>
+        <div class="row border border-white p-3 mb-2 bg-light text-dark">
+            <div class="col">
+                <h1 class="text-center">Register</h1>
+                <form method="POST" class="form-register" >
+                    {{ form.username.label() }}
+                    {{ form.username(class = "form-control", placeholder = "User Name") }}
+                    {{ form.email.label() }}
+                    {{ form.email(class = "form-control", placeholder = "Email") }}
+                    {{ form.password.label() }}
+                    {{ form.password(class = "form-control", placeholder = "Password") }}
+                    {{ form.phone.label() }}
+                    {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
