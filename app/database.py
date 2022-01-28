@@ -12,4 +12,4 @@ class Item(db.model):
     projects = db.Column(db.String(length = 1000), nullable = False)
 
     def __repr__(self):
-        return '<Task %r>' %self.id
+        return f'User {self.username}
