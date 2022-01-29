@@ -52,7 +52,7 @@ def register():
         try:
             db.session.add(user)
             db.session.commit()
-            return redirect('/login')
+            return redirect('/')
         except:
             return "Error adding to database"
     if form.errors != {}:
