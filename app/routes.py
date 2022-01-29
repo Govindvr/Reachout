@@ -1,12 +1,26 @@
+from dataclasses import field
 from flask import render_template, request,redirect, flash, url_for
 from app import app
 from app.forms import RegisterForm, LoginForm
 from app import db
 from app.database import User
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def home():
-    return render_template("home.html")
+    if request.method == "POST":
+        skill = request.form.get("skill")
+        people = User.query.filter_by(field = skill).all()
+        if people:
+            for person in people:
+                print(person.name)
+        else:
+            print("empty")
+
+        return render_template("home.html",people=people)
+    else:
+        people=[]
+        return render_template("home.html",people=people)
+
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():

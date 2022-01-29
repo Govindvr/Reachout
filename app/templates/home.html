@@ -16,7 +16,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="#res_heading">Result</a></li>
+                <li><a href="#table">Result</a></li>
             </ul>
 
            
@@ -41,22 +41,24 @@
         <div class="main-search-input-wrap">
             <div class="main-search-input fl-wrap">
                 <div class="main-search-input-item">
-                  <form method="POST">
-                  <input type="text" value="" placeholder="Search"> </div> <button
-                    class="main-search-button">Search</button>
+
+                  <form action="{{ url_for('home')}}" method="POST">
+                  <input type="text" name="skill" placeholder="Search"> </div> 
+                   <a href="#table"> <button class="main-search-button">Search</button> </a>
                   </form>
+
             </div>
         </div>
         <div class="input-group"></div><i class="fas fa-align-center"></i>
     </div>
-
+    {% if people %}
     <div class="container-fluid text-center">
         <h2 id="res_heading">Result</h2>
     </div>
 
     <div class="container mt-5">
         <table class="table table-hover">
-            <thead class="table-dark">
+            <thead id="table" class="table-dark">
                 <tr>
                     <th scope="col">Sl.No</th>
                     <th scope="col">Name</th>
@@ -67,31 +69,18 @@
                 </tr>
             </thead>
             <tbody>
+                {% for person in people %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>CSE S3</td>
-                    <td>UI</td>
-                    <td>9997776650</td>
-                    <td>profile1</td>
+                    <th scope="row">{{people.index(person)+1}}</th>
+                    <td>{{person.name}}</td>
+                    <td>{{person.education_status}}</td>
+                    <td>{{person.field}}</td>
+                    <td>{{person.phno}}</td>
+                    <td><a href="{{ url_for('profile',id=person.id) }}">View Profile</a></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Tommy</td>
-                    <td>CSE S4</td>
-                    <td>Web development</td>
-                    <td>9991236650</td>
-                    <td>profile2</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Rexy</td>
-                    <td>CSE S4</td>
-                    <td>Python</td>
-                    <td>8797776650</td>
-                    <td>profile3</td>
-                </tr>
+               {% endfor %}
             </tbody>
         </table>
     </div>
+    {% endif %}
     {% endblock %}
