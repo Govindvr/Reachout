@@ -64,4 +64,4 @@ def register():
 def profile(id):
     print(type(id))
     user = User.query.get(id)
-    return user.name
+    return render_template("profile.html",user=user)

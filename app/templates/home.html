@@ -8,7 +8,7 @@
     <nav class="navbar-inverse navbar fixed-top scrolling-navbar">
       <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">ReachOut</a>
+                <a class="navbar-brand" href="/">ReachOut</a>
             </div>
 
             <ul class="nav navbar-nav navbar-left">
@@ -44,7 +44,7 @@
 
                   <form action="{{ url_for('home')}}" method="POST">
                   <input type="text" name="skill" placeholder="Search"> </div> 
-                   <a href="#table"> <button class="main-search-button">Search</button> </a>
+                   <button class="main-search-button" onclick="location.href='#pointer'">Search</button>
                   </form>
 
             </div>
