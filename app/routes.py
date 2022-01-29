@@ -1,4 +1,4 @@
-from flask import render_template, request,redirect, flash
+from flask import render_template, request,redirect, flash, url_for
 from app import app
 from app.forms import RegisterForm, LoginForm
 from app import db
@@ -15,7 +15,8 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and form.password.data == user.password:
             flash("success")
-            print("sucess")
+            print(type(user.id))
+            return redirect(url_for('profile',id=user.id))
 
         else:
             flash("failed")
@@ -35,8 +36,17 @@ def register():
                     education_status = form.education.data ,
                     field = form.field.data ,
                     projects = form.project.data )
-        db.session.add(user)
-        db.session.commit()
-        return redirect('/login')
+        try:
+            db.session.add(user)
+            db.session.commit()
+            return redirect('/login')
+        except:
+            return "Error adding to database"
 
     return render_template("register.html",form=form)
+
+@app.route('/profile/<int:id>')
+def profile(id):
+    print(type(id))
+    user = User.query.get(id)
+    return user.name
