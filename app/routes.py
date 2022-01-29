@@ -33,15 +33,14 @@ def login():
             return redirect(url_for('profile',id=user.id))
 
         else:
-            flash("failed")
-            print("fail")
+            flash("Invalid Username or Password")
 
     return render_template("login.html", form=form)
 
 @app.route('/register',methods = ['GET','POST'])
 def register():
     form = RegisterForm()
-    if request.method == 'POST':
+    if form.validate_on_submit():
         user = User(username = form.username.data,
                     password = form.password.data,
                     name = form.name.data,
@@ -56,7 +55,9 @@ def register():
             return redirect('/login')
         except:
             return "Error adding to database"
-
+    if form.errors != {}:
+        for msg in form.errors.values():
+            flash(f'Error: {msg}')
     return render_template("register.html",form=form)
 
 @app.route('/profile/<int:id>')

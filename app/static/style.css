@@ -1,0 +1,76 @@
+body, html {
+    height: 100%;
+    background-color: #d9d9d9;
+    background-size: cover;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-text {
+    margin-left: 7.5%;
+    padding-top: 3%;
+    color : #faf8f6f3;
+    height: 100%;
+    width: 90%;
+  }
+  
+  .name {
+    scroll-padding-top: 7%;
+    font-size: 7vw;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+  }
+  
+  .class {
+    font-size: 2.5vw;
+    margin-top: -2vw;
+    scroll-padding-left:1vw;
+  }
+  
+  .phone {
+    margin-top: 2vw;
+    font-size: 2vw;
+  }
+  
+  .mail {
+    margin-top: -3.2vw;
+    margin-left: 25vw;
+    font-size:2vw;
+  }
+  
+  .more-det {
+    margin-top: 11%;
+  }
+  
+  .more {
+    font-size: 1.5vw;
+    margin-top: 2%;
+    color: rgb(14, 13, 13);
+  }
+  
+  .bg-image {
+    /* The image used */
+    margin-top: 4.5%;
+    margin-bottom: 2%;
+    background-image:url(profile.png);
+    background-size: cover;
+  
+    /* Add the blur effect */
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    opacity: 1.00;
+  
+    /* Full height */
+    height: 90%;
+    width : 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    
+  }
+  
+  
+  
+  

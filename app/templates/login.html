@@ -3,7 +3,9 @@
 {% block body %}
 
     {% for mesg in get_flashed_messages() %}
-      <h1>{{ mesg }}</h1>
+        <div class="alert alert-danger text-center">
+            <p>{{ mesg }}</p>
+        </div>
       {% endfor %}
       
     <div class="container">
