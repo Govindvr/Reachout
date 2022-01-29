@@ -12,11 +12,14 @@ def home():
 def login():
     form = LoginForm()
     if request.method == 'POST':
-        user = User.query.get(form.username.data).first()
-        if user and form.password.data == User.query.filter_by(username=form.username.data).first().password:
-            flash("sucess")
+        user = User.query.filter_by(username=form.username.data).first()
+        if user and form.password.data == user.password:
+            flash("success")
+            print("sucess")
+
         else:
             flash("failed")
+            print("fail")
 
     return render_template("login.html", form=form)
 

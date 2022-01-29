@@ -12,4 +12,4 @@ class User(db.Model):
     projects = db.Column(db.String(length = 1000))
 
     def __repr__(self):
-        return f'User {self.name}'
+        return f'User {self.username}'
