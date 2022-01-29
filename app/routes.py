@@ -4,18 +4,14 @@ from app import app
 from app.forms import RegisterForm, LoginForm
 from app import db
 from app.database import User
+from flask_login import login_user, logout_user
+
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     if request.method == "POST":
         skill = request.form.get("skill")
         people = User.query.filter_by(field = skill).all()
-        if people:
-            for person in people:
-                print(person.name)
-        else:
-            print("empty")
-
         return render_template("home.html",people=people)
     else:
         people=[]
@@ -26,16 +22,17 @@ def home():
 def login():
     form = LoginForm()
     if request.method == 'POST':
-        user = User.query.filter_by(username=form.username.data).first()
-        if user and form.password.data == user.password:
-            flash("success")
-            print(type(user.id))
-            return redirect(url_for('profile',id=user.id))
+        attempt_user = User.query.filter_by(username=form.username.data).first()
+        if attempt_user and form.password.data == attempt_user.password:
+            login_user(attempt_user)
+            flash("Success!!")
+            return redirect(url_for('profile',id=attempt_user.id))
 
         else:
             flash("Invalid Username or Password")
 
     return render_template("login.html", form=form)
+
 
 @app.route('/register',methods = ['GET','POST'])
 def register():
@@ -60,8 +57,14 @@ def register():
             flash(f'Error: {msg}')
     return render_template("register.html",form=form)
 
+
 @app.route('/profile/<int:id>')
 def profile(id):
-    print(type(id))
     user = User.query.get(id)
     return render_template("profile.html",user=user)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for("home"))

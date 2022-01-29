@@ -1,84 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "index.html" %}
 
-<head>
-    <title>Profile</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="bg3.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='style.css')}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+{% block style %}<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='style.css')}}">{% endblock %}
 
-<body>
-    <header class=fixed-top>
-        <div class="row">
-            <div class="col">
-                <nav class="navbar-inverse navbar fixed-top scrolling-navbar">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="/">ReachOut</a>
-                        </div>
-            
-                        <ul class="nav navbar-nav navbar-left">
-                            <li class="active"><a href="/">Home</a></li>
-                        </ul>
-            
-                        <ul class="nav navbar-nav navbar-left">
-                            <li><a href="#table">Result</a></li>
-                        </ul>
-            
-                       
-            
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{url_for('register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        </ul>
-            
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+
+{% block body %}
+    
+<div class="bg-image">
+    <div class="bg-text ">
+        <div class="personal-det">
+            <h1 class="name">{{user.name}}</h1>
+            <br>
+            <br>
+            <h3 class="class">{{user.education_status}}</h3>
         </div>
-    </header>
-
-    <div class="bg-image">
-        <div class="bg-text ">
-            <div class="personal-det">
-                <h1 class="name">{{user.name}}</h1>
-                <br>
-                <br>
-                <h3 class="class">{{user.education_status}}</h3>
-            </div>
-            <div>
-                <h4 class="phone">Contact:{{user.phno}}</h4>
-            </div>
-            <div>
-                <h4 class="mail">e-mail:{{user.email}}</h4>
-            </div>
-            <div class="more-det">
-                <h1 class="more">DOMAIN : {{user.field}}</h1>
-                <h1 class="more">ACHEIVEMENTS : 1st runner up in College fest 2021</h1>
-                <h1 class="more">PROJECTS : <button type="button" class="btn btn-primary" onclick="location.href='{{user.projects}}'">View</button></h1>
-            </div>
+        <div>
+            <h4 class="phone">Contact:{{user.phno}}</h4>
+        </div>
+        <div>
+            <h4 class="mail">e-mail:{{user.email}}</h4>
+        </div>
+        <div class="more-det">
+            <h1 class="more">DOMAIN : {{user.field}}</h1>
+            <h1 class="more">ACHEIVEMENTS : 1st runner up in College fest 2021</h1>
+            <h1 class="more">PROJECTS : <button type="button" class="btn btn-primary" onclick="location.href='{{user.projects}}'">View</button></h1>
         </div>
     </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+    
+{% endblock %}

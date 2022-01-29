@@ -12,6 +12,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='style1.css')}}">
+    {% block style %}{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -33,15 +34,29 @@
                       <li><a href="#table">Result</a></li>
                   </ul>
       
-                 
+                  {% if current_user.is_authenticated %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ url_for('profile',id=current_user.id) }}"> Welcome..{{current_user.name}}</a></li>
+                    </ul>
+        
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+
+                  {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{url_for('register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    </ul>
+        
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+
+                  {% endif %}
       
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a href="{{url_for('register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  </ul>
-      
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                  </ul>
+
+
+
               </div>
           </nav>
         </div>
