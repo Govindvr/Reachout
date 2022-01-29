@@ -1,40 +1,50 @@
 {% extends "index.html" %}
 
 {% block body %}
-    <div class="container">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container-fluid">
         
         <h1 class="text-center">Register</h1>
-        <div class="row border p-3 mb-2 text-dark d-flex justify-content-center">
+        <div class="row border text-center align-items-center justify-content-between">
             
-            <div class="row ">
-                    <form method="POST" class="form-register" >
-                        <div class="col-md-6 col-12">
-                            {{ form.username.label() }}
-                            {{ form.username(class = "form-control", placeholder = "User Name") }}
-                            {{ form.email.label() }}
-                            {{ form.email(class = "form-control", placeholder = "Email") }}
-                            {{ form.password.label() }}
-                            {{ form.password(class = "form-control", placeholder = "Password") }}
-                            {{ form.phone.label() }}
-                            {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
-                        </div>
-                        <div class="col-md-6 col-12">
-                            {{ form.name.label() }}
-                            {{ form.name(class = "form-control", placeholder = "Name") }}
-                            {{ form.education.label() }}
-                            {{ form.education(class = "form-control", placeholder = "Class") }}
-                            {{ form.field.label() }}
-                            {{ form.field(class = "form-control", placeholder = "Area of interest") }}
-                            {{ form.project.label() }}
-                            {{ form.project(class = "form-control", placeholder = "Works") }}
+        
+            <form method="POST" class="form-register" >
+                {{ form.hidden_tag() }}
+                <div class="col-sm-6 col-md-6 col-12">
+                    {{ form.username.label() }}
+                    {{ form.username(class = "form-control", placeholder = "User Name") }}
+                    {{ form.email.label() }}
+                    {{ form.email(class = "form-control", placeholder = "Email") }}
+                    {{ form.password.label() }}
+                    {{ form.password(class = "form-control", placeholder = "Password") }}
+                    {{ form.phone.label() }}
+                    {{ form.phone(class = "form-control", placeholder = "Mobile No") }}
+                </div>
+                <div class="col-sm-6 col-md-6 col-12">
+                    {{ form.name.label() }}
+                    {{ form.name(class = "form-control", placeholder = "Name") }}
+                    {{ form.education.label() }}
+                    {{ form.education(class = "form-control", placeholder = "Class") }}
+                    {{ form.field.label() }}
+                    {{ form.field(class = "form-control", placeholder = "Area of interest") }}
+                    {{ form.project.label() }}
+                    {{ form.project(class = "form-control", placeholder = "Works") }}
 
-                            
-                        </div>
-                        {{form.submit(class="btn btn-block btn-lg btn-primary")}}
-                    </form>
+                    
+                </div>
+                {{form.submit(class="btn btn-block btn-lg btn-primary")}}
+            </form>
                         
                 
-            </div>
+            
             
         </div>
            
