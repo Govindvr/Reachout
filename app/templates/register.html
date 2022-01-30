@@ -1,6 +1,11 @@
 {% extends "index.html" %}
 
 {% block body %}
+
+    <br>
+    <br>
+    <br>
+    <br>
     {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
             {% for message in messages %}
@@ -10,11 +15,6 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    <br>
-    <br>
-    <br>
-    <br>
-
     <div class="container-fluid">
         
         <h1 class="text-center">Register</h1>

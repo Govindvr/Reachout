@@ -1,18 +1,18 @@
 {% extends "index.html" %}
 
 {% block body %}
-
-    {% for mesg in get_flashed_messages() %}
+      
+    <div class="container">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        {% for mesg in get_flashed_messages() %}
         <div class="alert alert-danger text-center">
             <p>{{ mesg }}</p>
         </div>
-      {% endfor %}
-      
-    <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
+        {% endfor %}
         <h1>Login</h1>
         <form method="POST" class="form-login" >
             {{ form.username.label() }}
